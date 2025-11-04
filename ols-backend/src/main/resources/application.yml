@@ -1,0 +1,35 @@
+spring:
+  config:
+    import:
+      - classpath:jwt.yml
+      - classpath:database.yml
+      - classpath:video.yml
+      - classpath:nginx.yml
+      - classpath:image.yml
+      - classpath:portOne.yml
+      - classpath:redis.yml
+  servlet:
+    multipart:
+      max-file-size: 5GB
+      max-request-size: 5GB
+  web:
+    resources:
+      static-locations: classpath:/static/
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+        order_inserts: true
+
+logging:
+  file:
+    name: logs/application.log
+  level:
+    org:
+      hibernate:
+        sql: debug
+    root: info

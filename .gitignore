@@ -1,0 +1,75 @@
+# === OS / 일반 ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === IDE / 에디터 ===
+.vscode/
+.idea/
+*.iml
+
+# === Logs ===
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === 환경 변수 / 시크릿 ===
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+secrets.json
+
+# === Frontend ===
+/frontend/node_modules/
+/frontend/dist/
+/frontend/build/
+/frontend/.cache/
+/frontend/.parcel-cache/
+/frontend/.next/
+/frontend/.nuxt/
+/frontend/out/
+/frontend/.vite/
+
+# === Backend ===
+/backend/target/
+/backend/build/
+/backend/out/
+/backend/*.jar
+/backend/*.war
+
+# === Java / 컴파일 산출물 ===
+*.class
+*.jar
+*.war
+*.ear
+
+# === Docker ===
+docker-compose.override.yml
+**/Dockerfile.*.local
+
+# === 테스트 / temp ===
+*.tmp
+tmp/
+temp/
+*.swp
+
+# === 인증/키 관련 ===
+*.p12
+*.jks
+
+# === 기타 빌드 아티팩트 ===
+dist/
+build/
+
+# === 특정 파일 예시 (프로덕션 설정은 올리지 않음) ===
+/backend/application.yml
+/backend/application.properties
+/frontend/.env.example
+
+# === 사용자 정의: 프로젝트에서 생기는 임시파일 ===
+*.bak
+*.orig
