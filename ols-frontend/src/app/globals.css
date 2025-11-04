@@ -1,0 +1,1646 @@
+/* global.css 또는 app/globals.css (모든 CSS를 여기에 통합) */
+
+/* 기본 리셋 */
+body {
+    margin: 0;
+    font-family: 'AppleSDGothicNeo', 'Roboto', Arial, sans-serif; /* 폰트 설정 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f8f9fa; /* 전체 페이지 배경색 */
+    color: #333; /* 기본 텍스트 색상 */
+}
+
+a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+}
+
+/* --- 메인 컨테이너 및 레이아웃 스타일 --- */
+
+/* 페이지 전체를 감싸는 메인 컨테이너 (강의 목록 페이지에도 사용) */
+.container {
+    max-width: 1480px; /* 전체 콘텐츠 최대 너비 */
+    margin: 50px auto; /* 상하 여백 50px, 좌우 자동 (가운데 정렬) */
+    padding: 30px; /* 내부 여백 */
+    background-color: #ffffff; /* 흰색 배경 */
+    border-radius: 12px; /* 둥근 모서리 */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 효과 */
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+}
+
+/* 페이지 상단 헤더 컨테이너 (예: "내 강의 목록" 배너와 버튼) */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* 페이지 헤더 배너 (예: "내 강의 목록") */
+.page-header-banner {
+    padding: 15px 20px; /* 패딩 조정 */
+    background-color: #e0f7fa; /* 밝은 청록색 계열 */
+    border-left: 5px solid #00bcd4; /* 왼쪽 강조선 */
+    margin: 0; /* 기본 마진 제거 */
+    border-radius: 6px; /* 모서리 둥글게 */
+    font-size: 24px; /* 글씨 크기 조정 */
+    font-weight: bold;
+    color: #00796b; /* 진한 청록색 */
+}
+
+/* --- 폼 및 입력 필드 스타일 --- */
+
+/* 과목 등록 폼을 위한 컨테이너 */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 폼 그룹 간의 간격 */
+}
+
+/* 폼 섹션 제목 (예: "과목 등록하기") - 모달 내에서도 사용 가능 */
+.title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #343a40;
+    margin-bottom: 35px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* 개별 폼 그룹 (레이블 + 입력 필드) */
+.formGroup, .input-group { /* 두 클래스를 함께 관리 */
+    margin-bottom: 0; /* form-container의 gap으로 관리 */
+}
+
+/* 입력 필드 레이블 */
+.input-label, .label { /* 두 클래스를 함께 관리 (label은 태그 선택에 사용됨) */
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* 약간 굵게 */
+    color: #555;
+    font-size: 15px;
+}
+
+/* 일반 입력 필드 (input) */
+.input, .input-field { /* 두 클래스를 함께 관리 */
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    color: #333;
+}
+
+.input::placeholder, .input-field::placeholder {
+    color: #aaa;
+}
+
+/* 텍스트 영역 (textarea) */
+.textarea, textarea.input-field { /* 두 클래스를 함께 관리 */
+    resize: vertical;
+    min-height: 100px;
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    color: #333;
+}
+
+/* 입력 필드 포커스 시 스타일 */
+.input:focus, .textarea:focus, .input-field:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+/* 비활성화된 입력 필드 */
+.input-field:disabled {
+    background-color: #f1f3f5;
+    color: #868e96;
+    cursor: not-allowed;
+}
+
+/* 파일 입력 필드 (필요시 사용) */
+.file-input {
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 선택된 파일 이름 (필요시 사용) */
+.selected-file-name {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+    text-align: center;
+}
+
+/* --- 버튼 스타일 --- */
+
+/* 기본 버튼 스타일 */
+.btn-base {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-base:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-base:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* 주요(Primary) 버튼 - 업로드, 확인 등 긍정적인 액션 */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* 경고(Danger) 버튼 - 삭제, 취소 등 부정적인 액션 */
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* 보조(Secondary) 버튼 - 과목 관리 등 중간적인 액션 */
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* 제출 버튼 (특정 폼에서 사용될 수 있는 메인 버튼) */
+.submitButton {
+    width: 100%;
+    padding: 14px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    margin-top: 25px;
+}
+
+.submitButton:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.submitButton:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.submitButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 탈퇴 버튼 (특정 폼에서 사용) */
+.btn-withdraw {
+    background-color: #dc3545;
+    color: white;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+.btn-withdraw:hover {
+    background-color: #c82333;
+}
+
+/* 폼 액션 버튼 컨테이너 */
+.form-actions, .form-submit-actions { /* 두 클래스를 함께 관리 */
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end; /* 기본 오른쪽 정렬 */
+    gap: 10px; /* 버튼 사이 간격 */
+}
+
+.form-submit-actions {
+    justify-content: center; /* 제출 버튼은 중앙 정렬 */
+}
+
+/* 탈퇴 버튼 컨테이너 */
+.withdraw-button-container {
+    margin-top: 50px;
+    text-align: right;
+}
+
+/* --- 테이블 스타일 --- */
+
+/* 테이블을 감싸는 래퍼 */
+.table-wrapper {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow-x: auto; /* 테이블이 넘칠 때 가로 스크롤바 생성 */
+    margin-top: 20px;
+}
+
+/* 모던 스타일 테이블 */
+.modern-table {
+    width: 100%;
+    border-collapse: collapse; /* 셀 경계선 병합 */
+    text-align: left;
+}
+
+.modern-table th,
+.modern-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e9ecef;
+    color: #343a40;
+}
+
+.modern-table th {
+    background-color: #f1f3f5;
+    color: #495057;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.modern-table tbody tr:hover {
+    background-color: #f8f9fa; /* 호버 시 배경색 변경 */
+}
+
+.modern-table tbody tr:last-child td {
+    border-bottom: none; /* 마지막 행의 하단 선 제거 */
+}
+
+/* --- 태그 스타일 --- */
+
+/* 태그 선택 섹션 (체크박스 목록) */
+.tagSelection {
+    margin-bottom: 20px;
+}
+
+/* 태그 목록 컨테이너 (체크박스 태그) */
+.tagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 5px; /* 레이블과의 간격 */
+}
+
+/* 개별 태그 레이블 (체크박스와 텍스트를 감쌈) */
+.tagLabel {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.tagLabel:hover {
+    background-color: #e0e0e0;
+}
+
+.tagLabel input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #007bff; /* 체크박스 색상 */
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.tagLabel input[type="checkbox"]:checked + span {
+    font-weight: 600;
+    color: #007bff;
+}
+
+.tagLabel span {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* 테이블 셀 내 태그 컨테이너 */
+.tagContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* 태그 뱃지 (테이블에서 사용되는 개별 태그) */
+.tagBadge {
+    background-color: #e0e0e0;
+    color: #333;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 0.8em;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- 모달 스타일 --- */
+
+/* 모달 배경 오버레이 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* 모달 콘텐츠 박스 (일반 모달) */
+.modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    width: 550px;
+    max-width: 90%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: 'Roboto', Arial, sans-serif;
+
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* 모달 내 제목 */
+.modal-title {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* 투명한 닫기 버튼 (모달 상단 우측) */
+.btn-close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #888;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.btn-close-modal:hover {
+    color: #333;
+}
+
+/* 비디오 모달 콘텐츠 박스 (더 넓은 모달) */
+.video-modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Roboto', Arial, sans-serif;
+    box-sizing: border-box;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* 비디오 플레이어 래퍼 (반응형 16:9 비율 유지) */
+.player-wrapper {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 비율 */
+    background-color: black;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.player-wrapper .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* 비디오 제목 (모달 내) */
+.video-player-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 0 10px;
+    word-break: break-word;
+}
+
+/* 비디오 설명 (모달 내) */
+.video-description {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    padding: 0 10px;
+    word-break: break-word;
+}
+
+/* --- 상태 메시지 및 정보 메시지 --- */
+
+/* 일반 상태 메시지 (성공/에러) */
+.status-message {
+    margin-top: 15px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.status-message.success {
+    color: green;
+}
+
+.status-message.error {
+    color: red;
+}
+
+/* 처리 중 메시지 */
+.processing-message, .processing-status-message { /* 두 클래스 함께 관리 */
+    padding: 15px 20px;
+    background-color: #e3f2fd;
+    border-left: 5px solid #2196f3;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    color: #1a237e;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+/* 빈 상태 메시지 (데이터 없음 등) */
+.empty-state-message {
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #777;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background-color: white;
+    border: 1px dashed #cccccc;
+}
+
+.empty-state-button-container {
+    margin-top: 25px;
+    text-align: center;
+}
+
+/* --- 비디오 썸네일 그리드 (필요시 사용) --- */
+
+.video-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.video-card {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.video-card.selected {
+    border: 2px solid #009688;
+    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.3);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.video-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.video-selected-text {
+    text-align: right;
+    margin-top: auto;
+    font-weight: bold;
+    color: #009688;
+    font-size: 14px;
+}
+
+.bottom-buttons-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bottom-buttons-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-confirm-delete {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.btn-confirm-delete:hover {
+    background-color: #d32f2f;
+}
+
+.btn-confirm-delete:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* --- 정보 폼 컨테이너 (회원 정보 수정 등) --- */
+
+.info-form-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.info-form-container legend {
+    font-size: 28px;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* --- 리뷰 페이지 관련 스타일 --- */
+
+.reviewPageContainer {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.sectionTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+.reviewList {
+    margin-top: 20px;
+}
+
+.reviewItem {
+    padding: 20px 0;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.reviewItem:last-child {
+    border-bottom: none;
+}
+
+.reviewHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reviewAuthor {
+    font-weight: bold;
+    color: #495057;
+    font-size: 16px;
+}
+
+.reviewDate {
+    font-size: 14px;
+    color: #868e96;
+}
+
+.reviewRating {
+    color: #ffc107;
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.reviewTitle {
+    font-size: 17px;
+    color: #343a40;
+    line-height: 1.6;
+}
+
+.reviewContent {
+    font-size: 15px;
+    color: #343a40;
+    line-height: 1.6;
+}
+
+/* 별점 입력 컴포넌트 */
+.starRatingInput {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.starRatingInput label {
+    font-size: 2em;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.starRatingInput label:hover,
+.starRatingInput label:hover ~ label {
+    color: #ffc107;
+}
+
+.starRatingInput input[type="radio"] {
+    display: none;
+}
+
+.starRatingInput input[type="radio"]:checked ~ label {
+    color: #ffc107;
+}
+
+.starRatingInput label.selectedStar {
+    color: #ffc107;
+}
+
+.reviewFormActions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: 'Pretendard', sans-serif;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cart-title {
+  font-size: 2.2rem;
+  color: #333;
+  margin: 0;
+  font-weight: 700;
+}
+
+.empty-cart-message {
+  text-align: center;
+  color: #888;
+  font-size: 1.1rem;
+  padding: 50px;
+}
+
+.cart-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cart-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.cart-item.selected {
+  border-color: #4a90e2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f7f9fc;
+}
+
+.item-checkbox {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  cursor: pointer;
+  accent-color: #4a90e2;
+}
+
+.item-image {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-name {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+  font-weight: 600;
+}
+
+.cart-item-price {
+  font-size: 1.1rem;
+  color: #4a90e2;
+  font-weight: 700;
+  margin: 0.5rem 0 0;
+}
+
+.cart-summary {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e0e0e0;
+  text-align: right;
+}
+
+.summary-title {
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.summary-details {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.summary-details p {
+  margin: 0;
+}
+
+.total-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e74c3c;
+  margin-left: 1rem;
+}
+
+.summary-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.button-delete,
+.button-purchase {
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.button-delete {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.button-delete:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.button-purchase {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+.button-purchase:hover {
+  background-color: #357ebd;
+  transform: translateY(-2px);
+}
+
+/* 레이아웃 및 컨테이너 */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    padding: 2rem;
+}
+
+.signup-card {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.signup-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* 폼 요소 */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #555555;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5);
+}
+
+/* 라디오 버튼 */
+.role-options {
+    flex-direction: row;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.role-options label {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #555555;
+}
+
+.role-options input[type="radio"] {
+    margin-right: 0.5rem;
+    accent-color: #4A90E2;
+}
+
+/* 버튼 */
+.signup-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4A90E2;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.signup-button:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px);
+}
+
+.form-actions {
+    margin-top: 1rem;
+    text-align: right;
+}
+
+/* 레이아웃 및 컨테이너 */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    padding: 2rem;
+}
+
+.login-card {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* 폼 요소 */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #555555;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5);
+}
+
+/* 버튼 */
+.login-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4A90E2;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.login-button:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px);
+}
+
+/* 기본 네비게이션 스타일 */
+.nav-container {
+    padding: 15px 20px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-brand {
+    font-weight: bold;
+}
+
+.user-greeting {
+    white-space: nowrap;
+}
+
+.logout-button {
+    padding: 8px 15px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 검색창 전체 컨테이너 */
+.searching-component-container {
+    position: relative;
+    width: 100%; /* 네비게이션바 내에서 적절한 너비로 조정 */
+    max-width: 400px; /* 최대 너비 설정으로 PC 환경에서 너무 커지는 것을 방지 */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 검색 폼 */
+.search-form {
+    position: relative;
+}
+
+/* 검색 입력창 (search-box) 스타일 */
+.search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    border-radius: 9999px; /* rounded-full */
+    background-color: #f9fafb; /* bg-gray-50 */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.search-box:hover {
+    border-color: #6b7280; /* border-gray-500 */
+}
+
+/* 포커스 시 스타일 */
+.search-box:focus-within {
+    border-color: #1c5fdc;
+    box-shadow: 0 0 0 3px rgba(28, 95, 220, 0.3);
+}
+
+/* 검색 아이콘 */
+.search-icon {
+    width: 20px;
+    height: 20px;
+    color: #6b7280; /* text-gray-500 */
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+/* 선택된 태그 컨테이너 */
+.selected-tags-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-grow: 1;
+    overflow-x: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* 검색 입력 필드 */
+.search-input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #374151; /* text-gray-700 */
+    padding-right: 8px;
+    min-width: 50px; /* 입력 필드가 너무 작아지는 것을 방지 */
+}
+
+.search-input::placeholder {
+    color: #9ca3af; /* placeholder-gray-400 */
+}
+
+/* 선택된 태그 칩 */
+.selected-tag-chip {
+    display: inline-flex;
+    align-items: center;
+    background-color: #e5e7eb; /* bg-gray-200 */
+    color: #374151; /* text-gray-700 */
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 9999px;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+/* 태그 삭제 버튼 */
+.remove-tag {
+    margin-left: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #6b7280;
+}
+
+/* 태그 확장 영역 (검색창 클릭 시 나타나는 부분) */
+.tag-expansion-area {
+    position: absolute;
+    top: calc(100% + 8px); /* 검색창 아래 8px 간격으로 위치 */
+    left: 0;
+    width: 100%;
+    padding: 16px;
+    background-color: #ffffff; /* bg-white */
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    border-radius: 12px; /* rounded-xl */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); /* shadow-md */
+    z-index: 1000;
+}
+
+/* 태그 목록 컨테이너 */
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+/* 개별 태그 아이템 */
+.tag-item {
+    padding: 6px 12px;
+    border-radius: 9999px;
+    background-color: #f3f4f6; /* bg-gray-100 */
+    color: #4b5563; /* text-gray-600 */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.tag-item:hover {
+    background-color: #e5e7eb; /* bg-gray-200 */
+}
+
+/* 선택된 태그 아이템 */
+.tag-item.selected {
+    background-color: #1c5fdc; /* bg-blue-600 */
+    color: #ffffff; /* text-white */
+    font-weight: 600;
+}
+
+.tag-item.selected:hover {
+    background-color: #1e40af; /* hover:bg-blue-700 */
+}
+
+.search-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1c5fdc; /* bg-blue-600 */
+    color: #ffffff; /* text-white */
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px; /* rounded-lg */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.search-button:hover {
+    background-color: #1e40af; /* hover:bg-blue-700 */
+}
+
+/* MainPage.css */
+
+/* 전체 컨테이너 스타일링 */
+.main-container {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background: #f7f9fc;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+/* 제목 스타일링 */
+.main-container h2 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 강의 목록 컨테이너 */
+.course-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* 개별 강의 카드 스타일링 */
+.course-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 20px;
+    text-align: left; /* 텍스트를 왼쪽 정렬로 변경 */
+    display: flex; /* 내부 요소를 유연하게 배치 */
+    flex-direction: column;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.course-card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.course-card-content {
+    flex-grow: 1; /* 콘텐츠가 남은 공간을 채우도록 함 */
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card h3 {
+    font-size: 1.2em;
+    color: #34495e;
+    margin: 0;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.course-card-description {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    height: 40px; /* 두 줄로 제한 */
+    overflow: hidden;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.course-card-info {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: auto; /* 하단으로 밀어냄 */
+}
+
+.course-card-info p {
+    margin: 3px 0;
+}
+
+.course-tags {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.course-tag {
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 0.8em;
+}
+
+/* 페이지네이션 컨테이너 */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+/* 페이지네이션 버튼 스타일링 */
+.pagination-button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.pagination-button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* 현재 활성화된 페이지 버튼 스타일링 */
+.pagination-button.active {
+    background-color: #e74c3c;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.button-base {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    font-family: inherit; /* 상위 요소의 글꼴을 상속 */
+}
+
+/* 마우스 올렸을 때 효과 */
+.button-base:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 클릭했을 때 효과 */
+.button-base:active {
+    transform: translateY(0);
+}
+
+/* 주요 동작(primary) 버튼 스타일 */
+.review-button {
+    background-color: #3498db; /* 밝은 파란색 */
+    color: white;
+}
+
+.review-button:hover {
+    background-color: #2980b9; /* 약간 어두운 파란색 */
+}
+
+/* 보조 동작(secondary) 버튼 스타일 */
+.cart-button {
+    background-color: #ecf0f1; /* 회색조 배경 */
+    color: #7f8c8d; /* 진한 회색 텍스트 */
+}
+
+.cart-button:hover {
+    background-color: #bdc3c7; /* 약간 어두운 회색 */
+}
+
+.review-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    align-items: center;
+}
+
+/* 리뷰 목록 컨테이너 */
+.review-list {
+    margin-bottom: 25px;
+}
+
+/* 강의명 제목 */
+.review-list p:first-of-type {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+/* 개별 리뷰 카드 */
+.review-card {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.review-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 리뷰 내용 스타일 */
+.review-card-content p {
+    margin: 5px 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* 별점 컨테이너 */
+.star-rating {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+/* 별 아이콘 */
+.star-rating .star {
+    font-size: 1.5em;
+    color: #ccc; /* 회색(빈 별) */
+}
+
+/* 꽉 찬 별 */
+.star-rating .filled {
+    color: #ffc107; /* 노란색(꽉 찬 별) */
+}
+
+.course-list-container {
+    padding: 2.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f9;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* 강의 목록 헤더 영역 */
+.course-list-header {
+    width: 100%;
+    max-width: 700px;
+    padding: 2.5rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    margin-top: 5rem;
+}
+
+/* 페이지 제목 스타일 */
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+/* 강의 없음 메시지 영역 */
+.no-course-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+/* 메시지 텍스트 스타일 */
+.message-text {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* '수강 신청' 링크 스타일 */
+.enroll-link {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #3498db;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+.enroll-link:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+}
+
+.enroll-link:active {
+    background-color: #2980b9;
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.page-back-button {
+    width: 7%;
+    padding: 14px 14px;
+    background-color: #bdc3c7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    margin-top: 25px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
