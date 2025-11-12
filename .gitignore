@@ -73,3 +73,6 @@ build/
 # === 사용자 정의: 프로젝트에서 생기는 임시파일 ===
 *.bak
 *.orig
+
+localhost.crt
+localhost.key

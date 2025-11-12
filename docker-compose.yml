@@ -17,8 +17,8 @@ services:
     image: postgres:15
     container_name: postgres
     environment:
-      POSTGRES_USER: luna
-      POSTGRES_PASSWORD: 1234
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: spring_ols
     ports:
       - "5432:5432"
