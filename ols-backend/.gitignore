@@ -36,6 +36,8 @@ nginx.yml
 portOne.yml
 redis.yml
 video.yml
+.env
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/

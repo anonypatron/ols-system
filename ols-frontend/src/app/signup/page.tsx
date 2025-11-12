@@ -40,7 +40,7 @@ function SignupPage() {
             }
             
             alert('회원가입 성공!');
-            router.push('/');
+            router.push('/login');
         } catch(error) {
             console.log('회원가입 에러: ' + error);
             alert('회원가입 실패: ' + error);
@@ -113,7 +113,7 @@ function SignupPage() {
                                 />
                                 선생님
                             </label>
-                            <label>
+                            {/* <label>
                                 <input
                                     type="radio"
                                     name="role"
@@ -123,7 +123,7 @@ function SignupPage() {
                                     required
                                 />
                                 관리자
-                            </label>
+                            </label> */}
                         </div>
                     </div>
                     <div className="form-actions">

@@ -49,7 +49,7 @@ function Navbar() {
                         Online Learning System
                     </Link>
                     {userInfo.role === 'ADMIN' && (
-                        <Link href="/admin" style={{ color: 'white', textDecoration: 'none' }}>
+                        <Link href="/admin/course/management" style={{ color: 'white', textDecoration: 'none' }}>
                             Dashboard
                         </Link>
                     )}
